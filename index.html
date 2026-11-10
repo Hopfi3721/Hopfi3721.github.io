@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hopfi3721 — Telegram-боты, парсеры, мониторинг</title>
+  <meta name="description" content="Разработка Telegram-ботов, парсеров и сервисов мониторинга на Go и Python. Портфолио с открытым кодом.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="kicker">Go · Python · Rust</p>
+      <h1>Telegram-боты, парсеры и мониторинг</h1>
+      <p class="lead">
+        Делаю небольшие сервисы под ключ: приём заявок в Telegram, выгрузка данных
+        с сайтов в Excel, контроль доступности с алертами. Код открыт, тесты в комплекте.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#cases">Смотреть кейсы</a>
+        <a class="btn" href="#contact">Написать</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="about">
+      <h2>Что я делаю</h2>
+      <ul class="grid">
+        <li>
+          <h3>Telegram-боты</h3>
+          <p>Приём заявок, админ-панель, уведомления, выгрузка данных. aiogram 3, SQLite, Docker.</p>
+        </li>
+        <li>
+          <h3>Парсеры</h3>
+          <p>Сбор каталогов и цен, конкурентный обход с лимитами и повторами, выгрузка в CSV/XLSX.</p>
+        </li>
+        <li>
+          <h3>Мониторинг</h3>
+          <p>Проверки HTTP, история латентности, алерты в Telegram только при смене состояния.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="cases">
+      <h2>Кейсы</h2>
+
+      <article class="case">
+        <div class="case-head">
+          <h3>pingwatch — мониторинг доступности</h3>
+          <span class="tag">Go · SQLite · Docker</span>
+        </div>
+        <p>
+          Сервис проверяет HTTP-эндпоинты по индивидуальному расписанию и присылает
+          алерт в Telegram один раз на переход «работает → упал». Встроенный дашборд,
+          история латентности, p95, uptime.
+        </p>
+        <ul class="facts">
+          <li>пул воркеров и машина состояний для алертов без спама</li>
+          <li>59 тестов, включая <code>go test -race</code></li>
+          <li>один бинарник и один файл SQLite — без Postgres и Redis</li>
+        </ul>
+        <p class="links">
+          <a href="https://github.com/Hopfi3721/pingwatch">Код и README</a>
+          <a href="https://github.com/Hopfi3721/pingwatch/releases">Релизы</a>
+        </p>
+      </article>
+
+      <article class="case">
+        <div class="case-head">
+          <h3>Парсер каталога в CSV</h3>
+          <span class="tag">Go · CLI</span>
+        </div>
+        <p>
+          Консольная утилита обходит страницы листинга в несколько горутин, соблюдает
+          интервал между запросами, повторяет запросы на <code>429</code> и <code>5xx</code>
+          и выгружает результат в CSV, который открывается в Excel без «кракозябр».
+        </p>
+        <ul class="facts">
+          <li>селекторы задаются флагами — новый сайт без правки кода</li>
+          <li>учёт <code>Retry-After</code>, отмена по Ctrl+C с сохранением собранного</li>
+          <li>CSV: UTF-8 с BOM, разделитель <code>;</code></li>
+        </ul>
+        <p class="links">
+          <a href="https://github.com/Hopfi3721/go-concurrent-parser">Код и README</a>
+        </p>
+      </article>
+
+      <article class="case">
+        <div class="case-head">
+          <h3>tg-orders-bot — приём заявок</h3>
+          <span class="tag">Python · aiogram 3 · SQLite</span>
+        </div>
+        <p>
+          Бот проводит клиента по форме из пяти шагов, сохраняет заявку, уведомляет
+          администратора и даёт ему кнопки «В работу», «Готово», «Отклонить».
+          При смене статуса клиент получает сообщение, все заявки выгружаются в CSV.
+        </p>
+        <ul class="facts">
+          <li>валидация имени, телефона и описания, отправка контакта кнопкой</li>
+          <li>антифлуд и защита от повторных заявок</li>
+          <li>20 тестов на слой хранения, выгрузку и валидацию</li>
+        </ul>
+        <p class="links">
+          <a href="https://github.com/Hopfi3721/tg-orders-bot">Код и README</a>
+        </p>
+      </article>
+    </section>
+
+    <section id="contact">
+      <h2>Связаться</h2>
+      <p>
+        Опишите задачу в двух-трёх предложениях — отвечу со сроком и ценой.
+        <!-- ЗАМЕНИТЬ: ссылка на ваш Telegram -->
+        Telegram: <a href="https://t.me/your_telegram">@your_telegram</a><br>
+        <!-- ЗАМЕНИТЬ: почта -->
+        Почта: <a href="mailto:you@example.com">you@example.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>© 2026 Hopfi3721 · Код проектов открыт под лицензией MIT</p>
+  </footer>
+</body>
+</html>
